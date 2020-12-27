@@ -1,10 +1,10 @@
-#Sparse 3D Reconstruction
+# Sparse 3D Reconstruction
 
 
-###Introduction
+### Introduction
 This project was aimed at constructing a sparse 3D point cloud from a ordered set of images through a perspective-n-point pipeline given the intrinsic camera parameters. The datasets considered for this algorithm can be found at this [link](http://www.maths.lth.se/matematiklth/personal/calle/dataset/dataset.html). Specifically, the code was tested on the Gustav II Adolf Statue dataset that can be found [here](https://github.com/Kush0301/Structure-from-Motion/tree/master/sfm_dataset). The images were downsampled to reduce the computation cost. A track of 3 images was made on which the pnp pipeline was implemented.
 
-###Method Proposed
+### Method Proposed
 
 1. Acquire the first two images from the dataset, extract features using SIFT and find a good pair of matches using FLANN based KNN matcher. The obtained matches were refined by the distance ratio test as per Lowe's paper.
 2. The matched sets of keypoints were used to find out the Essential Matrix which was decomposed to recover the relative rotation and translation through SVD. The new projection matrix was calculated by using the intrinisc camera parameters. The keypoints were triangulated to find the reference 3D point cloud. 
@@ -17,7 +17,7 @@ This project was aimed at constructing a sparse 3D point cloud from a ordered se
 9. The entire process is repeated for every new image from point 5 onwards.
 
 
-###Results
+### Results
 
 The sparse point cloud obtained is first cleaned and then saved. This point cloud can be visualized using MeshLab.
 
